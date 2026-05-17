@@ -292,6 +292,14 @@
     .pstep:hover .pbar{transform:scaleX(1);}
 
     /* ABOUT */
+    .about-text-mobile{order:2;}
+    .about-photo{order:1;}
+    .award-wrap{order:3;}
+    @media(max-width:900px){
+      .about-text-mobile{order:unset;}
+      .about-photo{order:unset;}
+    }
+
     .about-s{background:var(--white);}
     .about-inner{display:grid;grid-template-columns:1fr 1.6fr 1fr;gap:3rem;align-items:start;}
     .about-photo{border-radius:24px;overflow:hidden;aspect-ratio:3/4;box-shadow:0 24px 60px rgba(12,35,64,.16);}
@@ -816,10 +824,7 @@
 <section class="about-s" id="about">
   <div class="mx">
     <div class="about-inner">
-      <div class="about-photo">
-        <img src="Jack.jpg" alt="Jack Deardorff, Founder of Best Websites — Cincinnati web designer and AI consultant"/>
-      </div>
-      <div>
+      <div class="about-text-mobile">
         <p class="ey">Cincinnati Web Designer &amp; AI Consultant</p>
         <h2>Jack Deardorff —<br><em>built for this</em></h2>
         <p style="font-size:1rem;font-weight:300;color:var(--body);line-height:1.8;margin-top:1.2rem;margin-bottom:1.5rem">I'm an AI Product Manager at Procter &amp; Gamble, where I lead AI product initiatives at one of the world's most respected companies. I completed advanced AI training at Northwestern University and have spent years at the intersection of technology, marketing, and business strategy.</p>
@@ -835,6 +840,9 @@
             <span style="width:5px;height:5px;border-radius:50%;background:var(--silver)"></span>Cincinnati, OH
           </span>
         </div>
+      </div>
+      <div class="about-photo">
+        <img src="Jack.jpg" alt="Jack Deardorff, Founder of Best Websites — Cincinnati web designer and AI consultant"/>
       </div>
       <div class="award-wrap">
         <div class="award-photo">
