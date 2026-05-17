@@ -171,7 +171,17 @@
     .serp-loading{display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:rgba(255,255,255,.3);margin-bottom:1rem;}
     .serp-spinner{width:10px;height:10px;border:1.5px solid rgba(0,153,204,.3);border-top-color:var(--sky);border-radius:50%;animation:spin .7s linear infinite;}
     @keyframes spin{to{transform:rotate(360deg)}}
-    @media(max-width:900px){.seo-inner{grid-template-columns:1fr;}}
+    @media(max-width:900px){
+      .why-grid-mob{grid-template-columns:1fr !important;gap:1.5rem !important;}
+      .eco-grid-mob{grid-template-columns:1fr 1fr !important;gap:.5rem !important;}
+      .cred-block{display:grid !important;grid-template-columns:1fr 1fr !important;gap:.5rem !important;border:none !important;border-radius:0 !important;overflow:visible !important;}
+      .cred-row{border:1px solid rgba(255,255,255,.08) !important;border-radius:14px !important;padding:.9rem !important;flex-direction:column !important;gap:.5rem !important;}
+      .cred-ico{font-size:1.2rem !important;}
+      .cred-h{font-size:.8rem !important;}
+      .cred-p{font-size:.72rem !important;}
+      .eco-card{padding:1rem .8rem !important;}
+      .eco-h{font-size:.78rem !important;}
+      .eco-p{font-size:.7rem !important;}.seo-inner{grid-template-columns:1fr;}}
 
     /* TRUST BAR */
     .trust{background:var(--white);border-bottom:1px solid var(--hair);padding:1.1rem 4.5%;}
@@ -325,6 +335,16 @@
       .eco-grid{grid-template-columns:repeat(2,1fr);}
     }
     @media(max-width:900px){
+      .why-grid-mob{grid-template-columns:1fr !important;gap:1.5rem !important;}
+      .eco-grid-mob{grid-template-columns:1fr 1fr !important;gap:.5rem !important;}
+      .cred-block{display:grid !important;grid-template-columns:1fr 1fr !important;gap:.5rem !important;border:none !important;border-radius:0 !important;overflow:visible !important;}
+      .cred-row{border:1px solid rgba(255,255,255,.08) !important;border-radius:14px !important;padding:.9rem !important;flex-direction:column !important;gap:.5rem !important;}
+      .cred-ico{font-size:1.2rem !important;}
+      .cred-h{font-size:.8rem !important;}
+      .cred-p{font-size:.72rem !important;}
+      .eco-card{padding:1rem .8rem !important;}
+      .eco-h{font-size:.78rem !important;}
+      .eco-p{font-size:.7rem !important;}
       .hero-inner,.svc-head,.ai-in,.eco-head,.about-inner{grid-template-columns:1fr;}
       .award-wrap{display:none;}
       .proc-grid{grid-template-columns:1fr 1fr;}
@@ -366,6 +386,16 @@
     .mob-menu .mob-cta{background:var(--sky);color:var(--white);text-align:center;border-radius:50px;margin-top:.5rem;font-weight:600;}
     .mob-menu .mob-cta:hover{background:var(--sky-mid);}
     @media(max-width:900px){
+      .why-grid-mob{grid-template-columns:1fr !important;gap:1.5rem !important;}
+      .eco-grid-mob{grid-template-columns:1fr 1fr !important;gap:.5rem !important;}
+      .cred-block{display:grid !important;grid-template-columns:1fr 1fr !important;gap:.5rem !important;border:none !important;border-radius:0 !important;overflow:visible !important;}
+      .cred-row{border:1px solid rgba(255,255,255,.08) !important;border-radius:14px !important;padding:.9rem !important;flex-direction:column !important;gap:.5rem !important;}
+      .cred-ico{font-size:1.2rem !important;}
+      .cred-h{font-size:.8rem !important;}
+      .cred-p{font-size:.72rem !important;}
+      .eco-card{padding:1rem .8rem !important;}
+      .eco-h{font-size:.78rem !important;}
+      .eco-p{font-size:.7rem !important;}
       .mob-toggle{display:flex;}
       .nav-r .nav-ico{display:none;}
       .nav-r .nav-cta{display:none;}
@@ -598,7 +628,7 @@
       <p class="lead w" style="max-width:100%;margin-top:1rem;">Most agencies hand you a finished site and disappear. We bring P&G-level strategy and deep AI expertise — then connect every tool your business needs to actually grow.</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;">
+    <div class="why-grid-mob" style="display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;">
 
       <!-- Left: differentiators -->
       <div>
@@ -638,7 +668,7 @@
       <!-- Right: ecosystem tools grid -->
       <div>
         <p class="ey sky-w" style="margin-bottom:1.2rem;">The ecosystem we build around you</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.85rem;">
+        <div class="eco-grid-mob" style="display:grid;grid-template-columns:1fr 1fr;gap:.85rem;">
           <div class="eco-card e1" style="background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.08);">
             <div class="eco-ico" style="background:rgba(0,153,204,0.15);">🌐</div>
             <div class="eco-h" style="color:rgba(255,255,255,.88);">Google Business &amp; Local SEO</div>
