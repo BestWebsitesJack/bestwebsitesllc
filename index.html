@@ -874,14 +874,13 @@
     <h2 style="text-align:center;margin-bottom:.75rem;">Let's talk about<br><em>your business</em></h2>
     <p style="text-align:center;font-size:1rem;color:var(--muted);margin-bottom:3rem;line-height:1.7;">Free 30-minute strategy call. No pitch, no pressure. Just a real conversation about your website and goals.</p>
 
-    <form action="https://api.web3forms.com/submit" method="POST"
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="submitForm(event)"
       style="display:flex;flex-direction:column;gap:1.2rem;">
 
       <!-- Access Key -->
       <input type="hidden" name="access_key" value="7acbde4b-6619-42f3-ae43-67a902613aab">
 
-      <!-- Redirect after submit -->
-      <input type="hidden" name="redirect" value="https://bestwebsites.tech/?success=true">
+
 
       <!-- Subject line in email -->
       <input type="hidden" name="subject" value="New Strategy Call Request — Best Websites">
@@ -942,7 +941,7 @@
       <input type="checkbox" name="botcheck" style="display:none;">
 
       <!-- Submit -->
-      <button type="submit"
+      <button type="submit" id="submitBtn"
         style="background:var(--sky);color:var(--white);border:none;padding:1.1rem 2.5rem;border-radius:50px;font-size:1rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:.5rem;"
         onmouseover="this.style.background='#007AAA'" onmouseout="this.style.background='var(--sky)'">
         Request My Free Strategy Call
@@ -952,6 +951,14 @@
       <p style="text-align:center;font-size:.78rem;color:var(--muted);">Usually responds within 2 hours · No spam ever</p>
 
     </form>
+
+    <!-- Success message -->
+    <div id="formSuccess" style="display:none;text-align:center;padding:3rem 2rem;background:rgba(0,153,204,.06);border:1.5px solid rgba(0,153,204,.2);border-radius:20px;margin-top:1rem;">
+      <div style="font-size:2.5rem;margin-bottom:1rem;">✅</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--navy);margin-bottom:.75rem;">Message received!</h3>
+      <p style="font-size:1rem;color:var(--muted);line-height:1.7;max-width:420px;margin:0 auto;">Thanks for reaching out. Jack will personally review your message and get back to you within 1 business day. We look forward to learning about your business.</p>
+      <p style="margin-top:1.5rem;font-size:.85rem;color:var(--sky);font-weight:600;">📞 Need to talk sooner? Call (513) 205-8826</p>
+    </div>
   </div>
 </section>
 
@@ -1202,6 +1209,39 @@
     });
   }
 
+})();
+
+  // ── CONTACT FORM SUBMISSION ──────────────────────────────────────────────
+  function submitForm(e) {
+    e.preventDefault();
+    var btn = document.getElementById('submitBtn');
+    var form = document.getElementById('contactForm');
+    var success = document.getElementById('formSuccess');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    var data = new FormData(form);
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: data
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(data){
+      if(data.success){
+        form.style.display = 'none';
+        success.style.display = 'block';
+        success.scrollIntoView({behavior:'smooth', block:'center'});
+      } else {
+        btn.textContent = 'Request My Free Strategy Call';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or call (513) 205-8826.');
+      }
+    })
+    .catch(function(){
+      btn.textContent = 'Request My Free Strategy Call';
+      btn.disabled = false;
+      alert('Something went wrong. Please try again or call (513) 205-8826.');
+    });
+  }
 })();
 </script>
 </body>
